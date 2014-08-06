@@ -1,5 +1,17 @@
 Manifest-Version: 1.0
 Build-Jdk: 1.7.0_60
+Built-By: Alex
+=======
+<<<<<<< HEAD
+Build-Jdk: 1.7.0_60
 Built-By: sam
+<<<<<<< HEAD
+=======
+=======
+Build-Jdk: 1.7.0_65
+Built-By: ￐ﾝ￐ﾰ￑ﾁ￑ﾂ￑ﾏ
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
 Created-By: Maven Integration for Eclipse
 
