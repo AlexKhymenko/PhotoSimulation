@@ -30,6 +30,7 @@ import javax.ws.rs.core.Response;
 
 import com.sun.jersey.multipart.FormDataParam;
 
+import org.apache.log4j.Logger;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.hibernate.Query;
@@ -47,11 +48,13 @@ import com.sun.jersey.core.header.FormDataContentDisposition;
 
 @Path("/jsonServices")
 public class JerseyRestService {
-	//Переделать
+	private Logger logger = Logger.getLogger(com.photobank.ws.JerseyRestService.class);
+	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@GET
 	@Path("/logout")
 	//@Produces("text/html")
 	public Response getIndex(@CookieParam(value = "name") String name) {
+		logger.fatal("Pressed LogOut BUtton");
 	    System.out.println("cookie  Name:  " + name );
 	    //return Response.ok(new Viewable("/index", model)).build();
 	    Cookie c = new Cookie("name", "");
@@ -66,7 +69,7 @@ public class JerseyRestService {
 	    
 	  return Response.status(200).cookie(nc).build();
 	}
-	//Метод срабатывает при начальной загрузке сранички
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@GET
 	//@Produces("text/html")
 	public Response getsession(@CookieParam(value = "name") String name) {
@@ -90,11 +93,12 @@ public class JerseyRestService {
 		return st;
 
 	}*/
-	//Тестовый метод. Не используется в программе
+	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@POST
 	@Path("/send")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response consumeJSON( JSONObject student ) throws JSONException{
+		logger.fatal("Pressed Send BUtton");
 		System.out.println(student.getString("email"));
 		System.out.println("----");
 		System.out.println(student.getString("pass"));
@@ -103,11 +107,12 @@ public class JerseyRestService {
 
 		return Response.status(200).entity("").build();
 	}
-	//Сервис для входа на страничку
+	//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@POST
 	@Path("/login")	
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response logUser(JSONObject user)throws JSONException{
+		logger.fatal("Pressed Login BUtton");
 		String email = user.getString("email");
 		String pass = user.getString("pass");
 		//Generate sessionID
@@ -137,11 +142,12 @@ public class JerseyRestService {
 		//Add cookie
 		
 	}
-	//Сервис для регистрации нового пользователя
+	//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@POST
 	@Path("/regUser")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response regUser(JSONObject user) throws JSONException{
+		logger.fatal("Pressed Register User BUtton");
 		String email = user.getString("email");
 		String pass = user.getString("pass");		
 		UserDao userDao = new UserDao();
@@ -167,11 +173,13 @@ public class JerseyRestService {
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	//public Response uploadFile(
 			public void uploadFile(
+					
 			@FormDataParam("file") InputStream fileInputStream,
 			@FormDataParam("file") FormDataContentDisposition contentDispositionHeader,
 			@CookieParam(value = "name") String name,  
 			@FormDataParam("folder") String folder,
 			@FormDataParam("title") String title) { 
+		logger.fatal("Pressed  upload file Button");
 		System.out.println("Folder:" + folder);
 		System.out.println("Phoro name:" + title);
 		//DAO Session get USer by Id
@@ -218,11 +226,13 @@ System.out.println(contentDispositionHeader.getFileName());
 		}
 
 	}	
-	//Сервис для вывода всех пользовательских фото. Используется ккукки. Кукки и пользователь имеют соответствие
+	//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@GET
 	@Path("/allUserPhoto")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllUserPhoto(@CookieParam(value = "name") String name) throws JSONException{
+		logger.fatal("Pressed All user BUtton");
+		
 		UserSessionDao session = new UserSessionDao();
 		Integer userId = session.getUserForSession(name);
 		PhotoDao dao = new PhotoDao();
@@ -239,7 +249,7 @@ System.out.println(contentDispositionHeader.getFileName());
 
 	}
 	
-	//Используется для формирования джейсона ввиде потока байт для фото. Отправляется в дж скрипт для отрисовки
+	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 /*	@GET
 	 @Path("/images/{image}")
 	 @Produces("image/*")
@@ -262,6 +272,7 @@ System.out.println(contentDispositionHeader.getFileName());
 	 @Path("/images/{image}")
 	 @Produces("image/*")
 	 public Response getImage(@PathParam("image") Integer imageId) {
+		logger.fatal("Pressed Image ");
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("FROM Photo Where imageId=:imageId");
 		query.setInteger("imageId", imageId);
@@ -285,20 +296,22 @@ System.out.println(contentDispositionHeader.getFileName());
 	
 	
 	
-	//Search by title. Поисковик. ФМ Для странички пользователя
+	//Search by title. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@GET
 	@Path("/search")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response makeSearch(@QueryParam("key") String key){
+		logger.fatal("Pressed  Search BUtton");
 		List<Integer> pathes = new PhotoDao().makeSearch(key);		
 		return Response.status(200).entity(pathes).build();		
 	}
 	
-//Для странички модератора	
+//пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ	
 	@GET
 	@Path("/allUserPhotoForModerator")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllPhotoForModerator() throws JSONException{
+		logger.fatal("Pressed all user photo BUtton");
 		UserSessionDao session = new UserSessionDao();
 		
 		PhotoDao dao = new PhotoDao();
@@ -312,23 +325,25 @@ System.out.println(contentDispositionHeader.getFileName());
 
 	}
 
-	//Удаление фото. ФМ для модератора
+	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@GET
 	 @Path("/delete/{imageId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void deletePhoto(@PathParam("imageId") Integer imageId) {
+		logger.fatal("Pressed delete BUtton");
 		System.out.println("Hello!");
-		//После теста удалить
+		//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		//Integer imageId = 42;
 		
 		new PhotoDao().deletePhoto(imageId);
 		//System.out.println("delete" + image);
 	}
-	//Вытягиваем фото по дате. ФМ для модератора
+	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@GET
 	@Path("/photoByDate/{date}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response photoByDate(@PathParam("date") String dateStr) throws JSONException{
+		logger.fatal("Pressed PhotoByDATE ");
 		//String dateStr = date.getString("Text_form");
 		System.out.println("DAte: " + dateStr);		
 	
@@ -345,14 +360,14 @@ System.out.println(contentDispositionHeader.getFileName());
 	}
 	
 
-//Для странички пользователя	
-	// Берем название картинки по ее адишнику, который приходит от джаваскрипта
+//пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ	
+	// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 /*	@GET
 	@Path("/photoTitle/{imageId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getPhotoTitle(@PathParam("imageId") Integer imageId) {
 		System.out.println("Hello from title!");
-		//После теста удалить
+		//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		//Integer imageId = 42;
 		String title = new PhotoDao().getPhotoTitle(imageId);
 		return Response.status(200).entity(title).build();
@@ -364,7 +379,7 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getPhotoTitle(@PathParam("path") String path) {
 		System.out.println("Hello from title!");
-		//После теста удалить
+		//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		//Integer imageId = 42;
 		String title = new PhotoDao().getPhotoTitle(path);
 		return Response.status(200).entity(title).build();
@@ -372,13 +387,14 @@ System.out.println(contentDispositionHeader.getFileName());
 	}
 
 	
-	//ФМ для странички  пользователя 
-	//Search by title. Поисковик. ФМ Для странички пользователя
+	//пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
+	//Search by title. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	@GET
 	@Path("/changeTitle")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response changeTitle(@QueryParam("imageId") Integer imageId, @QueryParam("newTitle") String newTitle){
 		//List<Integer> pathes = new PhotoDao().makeSearch(key);
+		logger.fatal("Pressed change title Button");
 		System.out.println("Hello" + newTitle );
 		new PhotoDao().changeTitle(imageId, newTitle);
 		Object pathes = null;
@@ -390,6 +406,7 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Path("/getPhotoByFolder")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getPhotoByFolder(@CookieParam(value = "name") String name, @QueryParam("folder") String folder){
+		logger.fatal("Pressed get photo by folder");
 		Integer userId = new UserSessionDao().getUserForSession(name);
 		Map<Integer,String> pathes = new PhotoDao().getPhotoByFolder(userId, folder);
 		return Response.status(200).entity(pathes).build();		
@@ -400,6 +417,7 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Path("/activateAccount")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response activateAccount( @QueryParam(value = "secretKey") String secretKey){
+		logger.fatal("Activate account");
 		UserDao ud = new UserDao();
 		Integer userId = ud.getUserBySecretKey(secretKey);
 		if (userId!=null){
@@ -416,8 +434,9 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Path("/photoTitleByImageId/{imageId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getPhotoByImageId(@PathParam("imageId") Integer imageId) {
+		logger.fatal("photoTitlebyImageID");
 		System.out.println("Hello from title!");
-		//После теста удалить
+		//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		//Integer imageId = 42;
 		String title = new PhotoDao().getPhotoTitleByImageId(imageId);
 		return Response.status(200).entity(title).build();
@@ -430,6 +449,7 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response imagetoSepia(@QueryParam(value = "imageId") Integer imageId, @QueryParam(value = "sepiaIntensity") Integer sepiaIntensity ) {
 		//Integer sepiaIntensity = 100;
+		logger.fatal("Pressed imageToSepia");
 		System.out.println("Hello from imagetoSepia!");
 		String path = new PhotoDao().getImagePathByImageId(imageId);
 		try {
@@ -446,8 +466,9 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Path("/imagetoBlack/{imageId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void imagetoBlack(@PathParam("imageId") Integer imageId) {
+		logger.fatal("Image to black");
 		System.out.println("Hello from imagetoBlack!");
-		//После теста удалить
+		//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		//Integer imageId = 42;
 		String path = new PhotoDao().getImagePathByImageId(imageId);
 		try {
@@ -465,6 +486,7 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Path("/moderConfirm/{imageId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void confirmImage(@PathParam("imageId") Integer imageId) {
+		logger.fatal("Pressed moderConfirm");
 		System.out.println("Hello from confirm!");
 
 		//confirmImage
@@ -479,6 +501,7 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Path("/getAllUsers")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getAllUsers() {
+		logger.fatal("Pressed get all user BUtton");
 		//Integer sepiaIntensity = 100;
 		System.out.println("Hello from getAllUsers!");
 		//key - userId, value - name
@@ -492,6 +515,7 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Path("/lockUser/{userId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void lockUser(@PathParam("userId") Integer userId) {
+		logger.fatal("Pressed  lock user BUtton");
 		System.out.println("Hello from lockUser!");
 //LockUser(userId)
 		new UserDao().lockUser(userId);
@@ -507,6 +531,7 @@ System.out.println(contentDispositionHeader.getFileName());
 	@Path("/unLockUser/{userId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void unLockUser(@PathParam("userId") Integer userId) {
+		logger.fatal("Pressed unlockUser BUtton");
 		System.out.println("Hello from lockUser!");
 		new UserDao().unlockUser(userId);
           //UnLockUser(userId)

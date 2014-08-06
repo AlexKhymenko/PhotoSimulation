@@ -19,18 +19,6 @@
     
     
     <script type="text/javascript">
-//DELETE after refactor. Action in enter of input field    
-   /*  $(document).ready(function(){
-    	alert("Hello!")
-    	debugger;
-        $("#inputName").keypress(function(e){
-        	debugger;
-          if(e.keyCode==13){
-        	  debugger;
-             //  searchByKeywords();
-          }
-        });
-}); */
     
           jQuery(function(){
         	  debugger;        	 
@@ -50,43 +38,33 @@
         	   for (i = 0; i < Object.keys(data).length; i++) { 
         		   debugger;
                         $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' + Object.keys(data)[i]/*+String(data [i])*/ + ' alt="" id="ph" onclick="openImageWindow()" /></br>');
-            //    '<br>' 
-                //Add
-             //   debugger;
-               
-/*                 var p =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/photoTitle/' + String(data [i]), function (data1) {
-                	//alert('63');
-                	 alert(data1);
-                	debugger;
-                }); */
-                // if (i == 1){
+            
                 	//Необходимо заменить на сервис, который будет вытягивать title
               /* РАбочая строчка */
-                   /* $("#slider").append('<input type=text value='+ data[Object.keys(data)[i]] +' id="inputName' + i + '"' +' />'); */       
+                   
                    $("#slider").append('<input type=text value='+ data[Object.keys(data)[i]]   +' id="' + Object.keys(data)[i] + '"' +' class="text_field"/></br>');
                 
                    /* РАбочая строчка */
-                   /* $("#inputName" + i).keypress(function(e){ */
+                   
                     $("#" + Object.keys(data)[i]).keypress(function(e){
-                    //	debugger;
+                    
                     //Навешиваем события на поля изменения названия под фото	
                       if(e.keyCode==13){
                     	  debugger;
-                    	//  alert(e.target.id);
-                    	//  alert('"#' + e.target.id + '"');
+                    	
                     	  var tag = '#' + e.target.id;
-                    	//  alert($(tag).val());
+                    	
                     	  debugger;
                     	  //Меняем значения поля. Отправляем новое значение через вэб-сервис
                     	   $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/changeTitle?imageId=' + e.target.id + '&newTitle=' + $(tag).val() , function (data) {
                     		  debugger;
                     	  });
-                         //  searchByKeywords();
+                         
                       }
                     });               
                 
               //  } 
-                    //    document.getElementById('inputName').readOnly = true;
+                   
                  }
         	    return t;
         	});
@@ -96,10 +74,10 @@
           //Get user photo by folder ID(GENERAL/PERSONAL)
           function getPhotoByFolder(folder){
          	  //Refresh winndow
-        	//  document.getElementById('slider').innerHTML = '';
-          
+/*                    	 document.getElementById('#personal_photo').innerHTML = '';
+        	 document.getElementById('#general_photo').innerHTML = '';  */
         	  debugger;
-        	 // var folder;
+        	 
         	  var j =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/getPhotoByFolder?folder=' + folder, function (data) {
         		  document.getElementById('slider').innerHTML = '';
         		  debugger;                
@@ -131,26 +109,26 @@
         	if (folder == 'Personal') id = "#personal_photo";
         	if (folder == 'General') id = "#general_photo";
         	debugger;
-         //var folder='Personal';
+			  $('#personal_photo').empty();
+	        	 $('#general_photo').empty(); 
         	var j =	   $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/getPhotoByFolder?folder=' + folder, function (data) {
         		 debugger;
         		   for (i = 0; i < Object.keys(data).length; i++) {
         			  debugger;
-        		//	  alert(data[i].);
-        			  $(id).append('<button type="button" class="success" id="personal_photo" onclick="printPhoto('+  Object.keys(data)[i]  + ')">' + data[Object.keys(data)[i]] + '</button>');
+
+        			  $(id).append('<li onclick="printPhoto('+  Object.keys(data)[i]  + ')">' + data[Object.keys(data)[i]] + '</button>');
         			  
         		  } 
         			 	  
         		  return '';
-        		  // $("#slider").append('<a href="#" title="Элемент 1"'>
-        		//  debugger;
+        		  
         	  });
-        		//document.getElementById('slider').innerHTML = '';  
+        		
         	  }
         //Pront ONE photo per id
         function printPhoto(data){
         	var key = data;
-        	//http://stackoverflow.com/questions/2010892/storing-objects-in-html5-localstorage
+        	
         	debugger;
         	 document.getElementById('slider').innerHTML = '';
         	// необходимо взять фото по айди photoTitle/{imageId}
@@ -176,7 +154,6 @@
              }); 
             
                $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/imagetoBlack/' + data +'>' +'<button>BlackAndWhite</button></a>'); 
-              /* $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/imagetoSepia?image=' + data + '&sepiaIntensity=' +'>' +'<button>BlackAndWhite</button></a>'); */
         }
         
 </script>
@@ -235,35 +212,19 @@
     <p class="links"><a href="#" class="plus">+</a>/<a href="#" class="minus">-</a></p>
     <div class="panel">
         <ul>
-          <button type="button" class="success" id="successful" onclick="getPhotoByFolder('Personal')">Personal</button> 
-          <button type="button" class="success" id="successful" onclick="explore('Personal')">P+</button>
-          <br>
-           <button type="button" class="success" id="successful" onclick="getPhotoByFolder('General')">General</button>
-           <button type="button" class="success" id="successful" onclick="explore('General')">G+</button>
-            <li><a href="#" title="Меню 1">Меню 1</a>
-                <ul>
-                <!--  <li><a href="#" title="Элемент 1" id="personal_photo">Элемент 1</a></li> -->
-                <button type="button" class="success" id="personal_photo">General</button>
-              <!--    <li><a href="#" id="personal_photo">Элемент 1</a></li> -->
-                 <li><a href="#" title="Элемент 2">Элемент 2</a></li>
-                 <li><a href="#" title="Элемент 3">Элемент 3</a></li>
+            <li><a href="#" title="Меню 1"  onclick="getPhotoByFolder('Personal')">Personal  <button type="button"  onclick="explore('Personal')">+</button></a>
+                <ul>            
+                 <li id="personal_photo"></li>
+
               </ul>
             </li>
-            <li><a href="#" title="Меню 2">Меню 2</a>
+            <li><a href="#" title="Меню 2" onclick="getPhotoByFolder('General')">General <button type="button"  onclick="explore('General')">+</button></a> 
                 <ul>
-                <button type="button" class="success" id="general_photo">General</button>
-                 <li><a href="#" title="Элемент 1">Элемент 1</a></li>
-                 <li><a href="#" title="Элемент 2">Элемент 2</a></li>
-                 <li><a href="#" title="Элемент 3">Элемент 3</a></li>
+
+                 <li id = "general_photo"></li>
+
               </ul>
             </li>
-<!--             <li><a href="#" title="Меню 3">Меню 3</a>
-                <ul>
-                 <li><a href="#" title="Элемент 1">Элемент 1</a></li>
-                 <li><a href="#" title="Элемент 2">Элемент 2</a></li>
-                 <li><a href="#" title="Элемент 3">Элемент 3</a></li>
-              </ul>
-            </li> -->
         </ul>
     </div>
 </div></div></table></td></tr></table></div></section>
