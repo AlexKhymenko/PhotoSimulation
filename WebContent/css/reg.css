@@ -1,0 +1,104 @@
+#lpform {
+	font-family: Arial, serif;
+	font-size: 17px;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+	margin-left: 10px;
+	margin-top: 10px;
+}
+#lform, #pform {
+	width: 700px;
+	height: 25px;
+	border-radius: 60px;
+	box-shadow: 
+		0 2px 1px rgba(0, 0, 0, 0.2),
+		inset 0 2px 1px rgba(0, 0, 0, 0.2);
+		background-repeat: no-repeat;
+}
+.success, #reg, .submitform, .cancel {
+    width: 100px;
+    height: 35px;
+    position: relative;
+  	display: inline-block;
+  	color: #777674;
+  	font-weight: bold;
+  	text-decoration: none;
+  	text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(176,224,230,.3) 3px 7px 3px;
+  	user-select: none;
+	outline: none;
+  	border-radius: 3px / 100%;
+  	background-image:
+   	linear-gradient(45deg, rgba(176,224,230,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%),
+   	linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)),
+   	linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   	linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   	linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)),
+   	linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+  	background-repeat: no-repeat;
+  	background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+  	background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+  	box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+}
+.success:hover, #reg:hover, .submitform:hover, .cancel:hover{
+  transition: .5s linear;
+  background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+.success:active, #reg:active, .submitform:active, .cancel:active {
+  top: 1px;
+}
+.categories {
+	padding-bottom: 30px;
+	background: #f8f8f8;
+}
+footer {
+	border-top: 1px solid #d2d2d2;
+	text-align: center;
+	background: #f8f8f8;
+	padding-bottom: 20px;
+}
+.logobar {
+	width: 100%;
+	height: 90px;
+}
+#logo {
+	width: 110px;
+	height: 150px;
+	margin-top: 60px;
+	margin-left: 5px;
+}
+#navbar {
+	width: 100%;
+	padding: 10px;
+	margin-top: -3px;
+	background: rgb(0,0,0)  radial-gradient(circle at 75% 0, rgba(240,240,240,.60), rgba(240,240,240,.30));
+	box-shadow:
+		inset rgba(0,0,0,.6) 0 -3px 8px,
+		inset rgba(252,255,255,.7) 0 3px 8px,
+		rgba(0,0,0,.8) 0 3px 8px -3px;
+}
+.forms {
+	width: 70%;
+	margin-left: 115px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	border-radius: 10px;
+	background: rgb(100,100,100) radial-gradient(circle at 0 0, rgba(255,255,255,.65), rgba(255,255,255,.35));
+	box-shadow:
+   	inset rgba(0,0,0,.5) -3px -3px 8px,
+   	inset rgba(252,255,255,.9) 3px 3px 8px,
+   	rgba(0,0,0,.8) 3px 3px 8px -3px;
+}
+#nform, #secform, #sform {
+	font-family: Arial, serif;
+	font-size: 15px;
+	width: 700px;
+	height: 23px;
+	border-radius: 60px;
+	box-shadow: 
+		0 2px 1px rgba(0, 0, 0, 0.2),
+		inset 0 2px 1px rgba(0, 0, 0, 0.2);
+		background-repeat: no-repeat;
+
+}
+
+
+

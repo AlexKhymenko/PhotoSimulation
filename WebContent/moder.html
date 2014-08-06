@@ -1,0 +1,310 @@
+<html>
+<head>
+	<title>Moder page</title>
+	<script type="text/javascript" src="js/main.js"></script>
+  	<link rel="stylesheet" type="text/css" href="css/main.css">
+  	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  	<link rel="stylesheet" type="text/css" href="css/reg.css">
+  	<link rel="stylesheet" type="text/css" href="css/users.css">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+
+
+
+
+<!-- CALENDAR -->
+<script src="js/jquery-1.6.2.min.js"></script>
+    <script src="js/jquery-ui-1.8.15.custom.min.js"></script>
+    <link rel="stylesheet" href="css/jqueryCalendar.css">
+    <script>
+        jQuery(function() {
+          jQuery( "#searchDate" ).datepicker();
+        });
+    </script>
+<!-- CALENDAR -->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="css/moder.css">
+   <!--  <script type="text/javascript" src="js/moder.js"></script> -->
+<body>
+		<section class="head">	
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
+        <div class="navbar-header">
+          <div class="logobar">
+            <img src="pics/logo.png" id="logo"></img>
+          </div>
+<!--Buttons for header (about and contacts)-->
+        <div class="navhead">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Про нас</a>
+          <a class="navbar-brand" href="#">Контакти</a>
+        </div>
+      </div>
+      <!--Button for logOut-->
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form" id="#myform">
+            <button type="button" class="success" id="successful" onclick="logOut()">Вийти</button>
+    <button type="button" class="success" id="successful" onclick="printAllUsers()">Користувачі</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+	</section>
+	<div class="left">
+
+    <div class="panel">
+    	<ul>
+    	   <li><a href="#" title="Элемент 1">Элемент 1</a></li>
+    	   <li><a href="#" title="Элемент 2">Элемент 2</a></li>
+    	   <li><a href="#" title="Элемент 3">Элемент 3</a></li>
+    	</ul>
+    	<ul>
+    	   <li><a href="#" title="Элемент 1">Элемент 1</a></li>
+    	   <li><a href="#" title="Элемент 2">Элемент 2</a></li>
+    	   <li><a href="#" title="Элемент 3">Элемент 3</a></li>
+    	</ul>
+    	<ul>
+    	   <li><a href="#" title="Элемент 1">Элемент 1</a></li>
+    	   <li><a href="#" title="Элемент 2">Элемент 2</a></li>
+    	   <li><a href="#" title="Элемент 3">Элемент 3</a></li>
+    	</ul>
+    </div> 
+    <p class="slide"><a href="#" class="btn-slide">Меню</a></p>
+</div>
+  <div id="forms">
+      <form  align="center" >
+            <input type="text" align="center"id="searchDate" />
+            <input type="button" value="Search" id="btn_form" onclick="searchPhotoByDate()"/></td>
+           
+      </form>
+    </div>
+    
+    
+    
+    <!-- Вставил код -->
+    
+    <script type="text/javascript">
+          jQuery(function(){
+        	  debugger;        	 
+        	 getAllPhoto();
+        	 
+      });         
+          
+         
+       //Function gets all user`s photo by userId. And print them.   
+          function getAllPhoto(){
+                 debugger; 
+             //    http://localhost:8080/Bank1/rest/jsonServices/images/
+              //  http://localhost:8080/Bank1/rest/jsonServices/allUserPhoto 
+          var j =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/allUserPhotoForModerator', function (data) {
+        	   debugger; 
+        	//   alert(Object.keys(data)[0]);
+        	//   alert(data[Object.keys(data)[0]]);
+        	   document.getElementById('slider').innerHTML = '';
+        	   for (i = 0; i < Object.keys(data).length; i++) { 
+                     /*    $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' +String(data [i]) + ' alt="" id="ph" onclick="openImageWindow()" />'); */
+                     $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' + Object.keys(data)[i] /*data[Object.keys(data)[i]]*/ + ' alt="" id="ph" onclick="openImageWindow()" />');
+                        '<br>' 
+                        $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/delete/' + Object.keys(data)[i] +'>' +'<button>Delete!</button></a>');
+                        //Confirm button for image
+                        $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/moderConfirm/' + Object.keys(data)[i] +'>' +'<button>Confirm!</button></a>');
+                       /*  $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/delete/' + String(data [i]).imageId +'>' +'<button>Click me !</button></a>'); */
+                        
+                        
+                       // '<br>' 
+                 }
+        	    return t;
+        	});
+        	       debugger;  
+                	} 
+       
+       
+        function  searchPhotoByDate()  {
+        	debugger;
+        	 var searchDate = {searchDate: $('#searchDate').val()};
+        	//refresh page
+        	document.getElementById('slider').innerHTML = '';	
+/*         	if (searchDate==""){        	 
+        	 break;
+        	} */
+        
+        var string = searchDate[Object.keys(searchDate)];
+        //Два раза меняет / на - . Переделать после
+        string = string.replace('/', '-'); 
+        string = string.replace('/', '-');  
+     var j =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/photoByDate/' +  string/* searchDate[Object.keys(searchDate)]*/ , function (data) {
+  	   debugger; 
+  	 document.getElementById('slider').innerHTML = '';
+  	 for (i = 0; i < Object.keys(data).length; i++) { 
+         /*    $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' +String(data [i]) + ' alt="" id="ph" onclick="openImageWindow()" />'); */
+         /* $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' +data[Object.keys(data)[i]] + ' alt="" id="ph" onclick="openImageWindow()" />'); */
+         $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' + Object.keys(data)[i]/*+String(data [i])*/ + ' alt="" id="ph" onclick="openImageWindow()" />');  
+         
+         '<br>' 
+         //Add button delete near image
+            $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/delete/' + Object.keys(data)[i] +'>' +'<button>Delete!</button></a>');
+           /*  $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/delete/' + String(data [i]).imageId +'>' +'<button>Click me !</button></a>'); */
+             $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/moderConfirm/' + Object.keys(data)[i] +'>' +'<button>Confirm!</button></a>'); 
+            
+           // '<br>' 
+     }
+  	    return t;
+  	});
+     
+     
+     
+        	debugger;
+        } 
+        //Print all users and button 'bun', 'activate'
+        //SEE iT
+        function printAllUsers(data){
+        	debugger;
+        	document.getElementById('slider').innerHTML = '';
+        	var j =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/getAllUsers', function (data) {
+        		 for (i = 0; i < Object.keys(data).length; i++) { 
+        		debugger;
+        		$("#slider").append('<input type=text value='+ data[Object.keys(data)[i]]   +' id="' + Object.keys(data)[i] + '"' +'/>');
+        	    $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/lockUser/' + Object.keys(data)[i] +'>' +'<button>Lock User!</button></a>');
+        	    $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/unLockUser/' + Object.keys(data)[i] +'>' +'<button>Unlock User!</button></a></br>');
+        	//	 '</br>'
+        		 }
+        	});
+        	  
+        }
+          
+</script>
+    
+    
+ <!-- Вставил код -->  
+ <!-- Для отрисовки картинок для модера --> 
+        <div id="slider">
+    </div>
+               
+            <span id="user">
+    </span>
+    
+    
+    
+    
+    
+<!-- ЗАМЕНИЛ ЭТУ ЧАСТЬ т.к. КАТЕГОРИИ выводились в столбик -->
+     <!-- Categories section-->
+    <section class="categories">
+    <hr id="line" size="5">
+    <h3 id="si">Search into categories</h3>
+    <section class="categories-wrapper">
+      <div class="one">
+        <ul class="fcol">
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+        </ul>
+        <ul class="scol">
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+        </ul>
+        <ul class="tcol">
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+        </ul>
+        <ul class="focol">
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+        </ul>
+          <ul class="ficol">
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </section>
+  <footer> Made by our team</footer>
+</body>
+</html>

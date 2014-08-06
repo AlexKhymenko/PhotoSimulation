@@ -1,0 +1,394 @@
+<html>
+<head>
+  	<title>User Page</title>
+  	<script type="text/javascript" src="js/main.js"></script>
+  	<link rel="stylesheet" type="text/css" href="css/main.css">
+  	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  	<link rel="stylesheet" type="text/css" href="css/reg.css">
+  	<link rel="stylesheet" type="text/css" href="css/users.css">
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    
+ <!--    <img src = "http://localhost:8080/Bank1/rest/jsonServices/images/pp" /> -->
+
+
+
+
+    
+    
+    <script type="text/javascript">
+//DELETE after refactor. Action in enter of input field    
+   /*  $(document).ready(function(){
+    	alert("Hello!")
+    	debugger;
+        $("#inputName").keypress(function(e){
+        	debugger;
+          if(e.keyCode==13){
+        	  debugger;
+             //  searchByKeywords();
+          }
+        });
+}); */
+    
+          jQuery(function(){
+        	  debugger;        	 
+        	 getAllPhoto();
+        	 
+      });         
+          
+         
+       //Function gets all user`s photo by userId. And print them.   
+          function getAllPhoto(){
+                 debugger; 
+             //    http://localhost:8080/Bank1/rest/jsonServices/images/
+              //  http://localhost:8080/Bank1/rest/jsonServices/allUserPhoto 
+          var j =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/allUserPhoto', function (data) {
+        	   debugger; 
+        //	   alert(Object.keys(data)[0]);
+        	   for (i = 0; i < Object.keys(data).length; i++) { 
+        		   debugger;
+                        $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' + Object.keys(data)[i]/*+String(data [i])*/ + ' alt="" id="ph" onclick="openImageWindow()" /></br>');
+            //    '<br>' 
+                //Add
+             //   debugger;
+               
+/*                 var p =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/photoTitle/' + String(data [i]), function (data1) {
+                	//alert('63');
+                	 alert(data1);
+                	debugger;
+                }); */
+                // if (i == 1){
+                	//Необходимо заменить на сервис, который будет вытягивать title
+              /* РАбочая строчка */
+                   /* $("#slider").append('<input type=text value='+ data[Object.keys(data)[i]] +' id="inputName' + i + '"' +' />'); */       
+                   $("#slider").append('<input type=text value='+ data[Object.keys(data)[i]]   +' id="' + Object.keys(data)[i] + '"' +' class="text_field"/></br>');
+                
+                   /* РАбочая строчка */
+                   /* $("#inputName" + i).keypress(function(e){ */
+                    $("#" + Object.keys(data)[i]).keypress(function(e){
+                    //	debugger;
+                    //Навешиваем события на поля изменения названия под фото	
+                      if(e.keyCode==13){
+                    	  debugger;
+                    	//  alert(e.target.id);
+                    	//  alert('"#' + e.target.id + '"');
+                    	  var tag = '#' + e.target.id;
+                    	//  alert($(tag).val());
+                    	  debugger;
+                    	  //Меняем значения поля. Отправляем новое значение через вэб-сервис
+                    	   $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/changeTitle?imageId=' + e.target.id + '&newTitle=' + $(tag).val() , function (data) {
+                    		  debugger;
+                    	  });
+                         //  searchByKeywords();
+                      }
+                    });               
+                
+              //  } 
+                    //    document.getElementById('inputName').readOnly = true;
+                 }
+        	    return t;
+        	});
+        	       debugger;  
+                	} 
+          
+          //Get user photo by folder ID(GENERAL/PERSONAL)
+          function getPhotoByFolder(folder){
+         	  //Refresh winndow
+        	//  document.getElementById('slider').innerHTML = '';
+          
+        	  debugger;
+        	 // var folder;
+        	  var j =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/getPhotoByFolder?folder=' + folder, function (data) {
+        		  document.getElementById('slider').innerHTML = '';
+        		  debugger;                
+               	   for (i = 0; i < Object.keys(data).length; i++) { 
+               		   debugger;
+                               $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' + Object.keys(data)[i] + ' alt="" id="ph" onclick="openImageWindow()" />');
+                       '<br>'       
+                          $("#slider").append('<input type=text value='+ data[Object.keys(data)[i]]   +' id="' + Object.keys(data)[i] + '"' +' class="text_field"/>');
+                          $("#" + Object.keys(data)[i]).keypress(function(e){                           
+                             if(e.keyCode==13){
+                           	  debugger;                           	
+                           	  var tag = '#' + e.target.id;                           
+                           	  debugger;
+                           	  //Меняем значения поля. Отправляем новое значение через вэб-сервис
+                           	   $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/changeTitle?imageId=' + e.target.id + '&newTitle=' + $(tag).val() , function (data) {
+                           		  debugger;
+                           	  });                              
+                             }
+                           });
+                       }
+               	    return t;
+        	  });
+         }
+          
+        //Explore folders(PERSONAL|GENERAL)
+          function explore(folder){
+        	var id;
+        
+        	if (folder == 'Personal') id = "#personal_photo";
+        	if (folder == 'General') id = "#general_photo";
+        	debugger;
+         //var folder='Personal';
+        	var j =	   $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/getPhotoByFolder?folder=' + folder, function (data) {
+        		 debugger;
+        		   for (i = 0; i < Object.keys(data).length; i++) {
+        			  debugger;
+        		//	  alert(data[i].);
+        			  $(id).append('<button type="button" class="success" id="personal_photo" onclick="printPhoto('+  Object.keys(data)[i]  + ')">' + data[Object.keys(data)[i]] + '</button>');
+        			  
+        		  } 
+        			 	  
+        		  return '';
+        		  // $("#slider").append('<a href="#" title="Элемент 1"'>
+        		//  debugger;
+        	  });
+        		//document.getElementById('slider').innerHTML = '';  
+        	  }
+        //Pront ONE photo per id
+        function printPhoto(data){
+        	var key = data;
+        	//http://stackoverflow.com/questions/2010892/storing-objects-in-html5-localstorage
+        	debugger;
+        	 document.getElementById('slider').innerHTML = '';
+        	// необходимо взять фото по айди photoTitle/{imageId}
+            $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' + data + ' alt="" id="ph" onclick="openImageWindow()" />');
+            '<br>'       
+              var j = $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/photoTitleByImageId/' + data, function (data) {
+            	debugger;
+            	  $("#slider").append('<input type=text value='+ data   +' id="' + key + '"' +' class="text_field"/>');
+                 $("#" + key).keypress(function(e){                           
+                    if(e.keyCode==13){
+                  	  debugger;  
+                  	
+                  	  var tag = '#' + e.target.id;  
+                  //	$(tag).val($(tag).val());
+                  	  debugger;
+                  	  //Меняем значения поля. Отправляем новое значение через вэб-сервис
+                  	   $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/changeTitle?imageId=' + e.target.id + '&newTitle=' + $(tag).val() , function (data) {
+                  		  debugger;
+                  	  });                              
+                    }
+                  });	
+            	 return t; 
+             }); 
+            
+               $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/imagetoBlack/' + data +'>' +'<button>BlackAndWhite</button></a>'); 
+              /* $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/imagetoSepia?image=' + data + '&sepiaIntensity=' +'>' +'<button>BlackAndWhite</button></a>'); */
+        }
+        
+</script>
+</head>
+<body>
+	<section class="head">	
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
+        <div class="navbar-header">
+          <div class="logobar">
+            <img src="pics/logo.png" id="logo"></img>
+          </div>
+<!--Buttons for header (about and contacts)-->
+        <div class="navhead">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Про нас</a>
+          <a class="navbar-brand" href="#">Контакти</a>
+        </div>
+      </div>
+      <!--Button for logOut-->
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form" id="#myform">
+            <button type="button" class="success" id="successful" onclick="logOut()">Вийти</button>
+
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+	</section>
+  <!-- Search section-->
+  <section class="searchline">
+    <div>
+      <form  id="headerimg" align="center" >
+              <input type="text" align="center"id="Wrform" />
+              <input type="button" value="Search" id="btnsearch"/></td>
+      </form>
+    </div>
+  </section>
+<!--Images  -->
+  <section class="mainplot">
+    <div id="slider">
+    <!-- <div id="slid"></div> -->
+    </div>
+    <!-- Menu form -->
+    <div>
+      <table class="main">
+        <tr><td>
+          <table class="btns">
+            <div id="btnbar">
+            <div class="float right">
+    <div id="debug"></div>
+    <p class="links"><a href="#" class="plus">+</a>/<a href="#" class="minus">-</a></p>
+    <div class="panel">
+        <ul>
+          <button type="button" class="success" id="successful" onclick="getPhotoByFolder('Personal')">Personal</button> 
+          <button type="button" class="success" id="successful" onclick="explore('Personal')">P+</button>
+          <br>
+           <button type="button" class="success" id="successful" onclick="getPhotoByFolder('General')">General</button>
+           <button type="button" class="success" id="successful" onclick="explore('General')">G+</button>
+            <li><a href="#" title="Меню 1">Меню 1</a>
+                <ul>
+                <!--  <li><a href="#" title="Элемент 1" id="personal_photo">Элемент 1</a></li> -->
+                <button type="button" class="success" id="personal_photo">General</button>
+              <!--    <li><a href="#" id="personal_photo">Элемент 1</a></li> -->
+                 <li><a href="#" title="Элемент 2">Элемент 2</a></li>
+                 <li><a href="#" title="Элемент 3">Элемент 3</a></li>
+              </ul>
+            </li>
+            <li><a href="#" title="Меню 2">Меню 2</a>
+                <ul>
+                <button type="button" class="success" id="general_photo">General</button>
+                 <li><a href="#" title="Элемент 1">Элемент 1</a></li>
+                 <li><a href="#" title="Элемент 2">Элемент 2</a></li>
+                 <li><a href="#" title="Элемент 3">Элемент 3</a></li>
+              </ul>
+            </li>
+<!--             <li><a href="#" title="Меню 3">Меню 3</a>
+                <ul>
+                 <li><a href="#" title="Элемент 1">Элемент 1</a></li>
+                 <li><a href="#" title="Элемент 2">Элемент 2</a></li>
+                 <li><a href="#" title="Элемент 3">Элемент 3</a></li>
+              </ul>
+            </li> -->
+        </ul>
+    </div>
+</div></div></table></td></tr></table></div></section>
+<!-- Upload form-->
+    <section class="uploadform">
+      <form action="http://localhost:8080/Bank1/rest/jsonServices/upload" method="post" enctype="multipart/form-data" id="upform">
+        <p>
+          Select a file : <input type="file" name="file" size="45" id="fileinput"/>
+        </p>
+        Folder:<input type="text" name="folder" value="folder" id="folder">
+        <br>
+        Title:<input type="text" name="title" value="title" id="title">
+        <br>
+        <input type="submit" value="Upload It" id="inpbtn" />
+      </form>
+    </section>
+    <!-- Categories section-->
+    <section class="categories">
+    <hr id="line" size="5">
+    <h3 id="si">Search into categories</h3>
+    <section class="categories-wrapper">
+      <div class="one">
+        <ul class="fcol">
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+          <li>
+            <a href=""> Abstract</a>
+          </li>
+        </ul>
+        <ul class="scol">
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+        </ul>
+        <ul class="tcol">
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+        </ul>
+        <ul class="focol">
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+        </ul>
+          <ul class="ficol">
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+          <li>
+            <a href=""> Decoration</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </section>
+  <footer> Made by our team</footer>
+</body>
+</html>

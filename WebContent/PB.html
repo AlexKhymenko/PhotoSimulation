@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Photo Bank</title>
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/modal-contact-form.css" />
+		<script type="text/javascript">
+        	jQuery(function(){
+        
+        		debugger;
+        	//	$("#second_panel").hide();
+        		
+        		
+        		       		
+        		
+        		document.getElementById('res').innerHTML = '';
+        		checkSession();
+/*         	var	data = ["img/Penguins.jpg", "img/bug.jpg"];
+        		for (i = 0; i < data.length; i++) { 
+        			$("#slider").append('<img src='  + data [i]+ ' alt="" />');
+        		  '<br>' 
+        		} */
+        		
+    			//$("#slider").append('<img src='  + data + ' alt="" />');
+			});
+        </script>
+
+	</head>
+	<body>
+		
+
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <button class="navbar-brand" id="nav-btn" onclick = "document.getElementById('envel').style.display='block';document.getElementById('fade2').style.display='block'">Контакти</button>
+         
+          <button class="navbar-brand" id="nav-btn" onclick = "document.getElementById('envel2').style.display='block';document.getElementById('fade3').style.display='block'">Про нас</button>
+        </div>
+        
+		<div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form" id="#myform" action="http://localhost:8080/Rest/rest/HelloWorld" method="post">
+ 			<div id="first_panel">
+            <div class="form-group" id="form-group1">
+              <input type="text" placeholder="Email"  name="email" class="form-control" id="email">
+            </div>
+            <div class="form-group" id="form-group2">
+              <input type="password" placeholder="Пароль" name="pass" class="form-control" id="pass">
+            </div>
+            <button class="success" id=submit type="button" value="submit" onclick="submitButton()">Увійти</button>
+         
+         
+         
+         <button type="button" id="reg" onclick="gotoS()">Реєстрація</button>
+         
+            </div>
+            <div id="second_panel">
+            <button type="button" id="touser" onclick="gotoUser()">Перейти</button>
+            <button type="button" id="logout" onclick="logOut()">Вийти</button>
+            </div> 
+          </form>
+        </div>
+      </div>
+    </div>
+	<section class="logobar">
+		<img src="pics/logo.png" id="logo">
+	</section>
+    <section class="bsearch" id="bodyk">
+    	<div id="container" class="container">
+ 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      		<ol class="carousel-indicators">
+        		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        		<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        		<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      		</ol>
+      		<div class="carousel-inner">
+      			<div class="container">
+      			<!-- Search by photo title -->
+      				<div id="search">
+    					<form  id="headerimg" align="center" >
+							<input type="text" align="center"id="tform" />
+							<input type="button" value="Search" id="but" onclick="searchButton()"/></td>
+							  <!-- <button class="success" id=submit type="button" value="submit" onclick="submitButton()">Увійти</button> -->
+						</form>
+					</div>
+      			</div>
+      			
+      			<!-- Images of search-->
+
+      			    <script type="text/javascript">
+      		       //Function gets all user`s photo by userId. And print them.   
+/*       	          function searchButton(){
+      	                 debugger; 
+      	          $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/search?key=' + $('#tform').val(), function (data) {
+      	        	   debugger; 
+      	        	   for (i = 0; i < data.length; i++) {
+      	        		   
+      	                   $("#search_res").append('<img src='  + data [i]+ ' alt="" id="search_res" onclick="openImageWindow()" />');
+      	                   '<br>' 
+      	                 }
+      	        	});
+      	        	       debugger;  
+      	                	}  */
+      		       
+      	          function searchButton(){
+                      debugger; 
+                      document.getElementById('res').innerHTML = '';
+                $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/search?key=' + $('#tform').val(), function (data) { 
+            	/* $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/allUserPhoto', function (data) {*/
+             	   debugger; 
+             	   for (i = 0; i < data.length; i++) { 
+                             $("#res").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' +String(data [i]) + ' alt="" id="search_res" onclick="openImageWindow()" />');
+                    // '<br>' 
+                      }
+             	    
+             	});
+             	       debugger;  
+                     	} 
+      		       
+      		       
+      		       
+      			    </script>
+      			
+        		<div class="item active">
+          			<img src="http://counsellingu.com/wp-content/uploads/2013/10/slider_sea4.jpg">
+        		</div>
+        		<div class="item">
+          			<img src="http://www.falkenbergslax.se/media/1327/Topp-strand1.jpg">
+        		</div>
+        		<div class="item">
+          			<img src="http://www.granjonquera.com/assets/imgs/tiendas/boboli/boboli-carousel-2.jpg">
+        		</div>
+      		</div>
+      		<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      		<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    	</div>
+    	</div>
+    	
+   	</section>
+   	<!-- NEW!!!! -->
+   	<div id="fade" class="black-overlay">
+
+    <div id="envelope" class="envelope">
+   <a class="close-btn" title="Закрити" href="javascript:void(0)" onclick = "document.getElementById('envelope').style.display='none';document.getElementById('fade').style.display='none'"></a>
+   <div class="title">Реєстрація</div>
+   <form method="post" action="">
+    <input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'* Ваш логін:this.value;" value="* Ваш логін" class="your-login" id="reg_login"/>
+    <input type="password"  placeholder="Введіть пароль"  class="password" id="reg_pass"/>
+    <input type="password"  placeholder="Повторіть пароль" class="repeat_password"/>
+    <input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'* Ваш Email':this.value;" value="* Ваш Email" class="email-address"/>
+    <input type="text" class="your-name" placeholder="* Ім'я"/>
+<!--     <button type="submit"  value="Надіслати" class="send-message" onclick="regButton()"> -->
+    <button id=submit type="button" class="registr" value="submit" onclick="regButton()">Submit</button>
+   </form>
+  </div>
+</div>
+
+
+
+
+	<div id="fade2" class="black-overlay2">
+     <div id="envel" class="envel">
+     <a class="close-btn" title="Закрити" href="javascript:void(0)" onclick = "document.getElementById('envel').style.display='none';document.getElementById('fade2').style.display='none'"></a>
+      <div class="title2">Щоб залишити нам запитання, використовуйте форму нижче.
+      <br>Щоб звязатись з нами, будь ласка, дзвоніть:
+      <br>063-324-3231
+      <br>097-133-1231
+       <ul class="d_green_ul"> 
+        <li>Не забудьте вказати свій email, щоб ми могли відповісти Вам;</li>
+        <li>Сформулюйте Ваше питання і натисність "Відправити".</li>
+       </ul>
+      </div>
+      <form method="post" action="">
+       <input id="name_resp" type="text" placeholder="* Ваше ім'я"/>
+       <input id="email_resp" type="text" placeholder="* Ваш e-mail"/>
+       <textarea id="text_resp" placeholder="* Ваше повідомлення"></textarea>
+       <button id=submit type="button" class="send-message2" value="submit" onclick="document.getElementById('envel2').style.display='none';document.getElementById('fade3').style.display='none'">Submit</button>
+     </form>
+     </div>
+    </div>
+	
+	<div id="fade3" class="black-overlay3">
+     <div id="envel2" class="envel2">
+      <a class="close-btn" title="Закрити" href="javascript:void(0)" onclick = "document.getElementById('envel2').style.display='none';document.getElementById('fade3').style.display='none'"></a>
+      <div class="title3">Про нас
+      <br>efgrg4eg45
+      <br> gregergergre
+      <br>ergergegege
+      </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+<!-- NEW -->
+
+<!--      <div id="search" >
+    </div> -->
+    </br>
+     <div id="res" >
+    </div> 
+
+
+	<footer> Made by our team</footer>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>

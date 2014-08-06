@@ -1,0 +1,56 @@
+
+.body {
+    padding:0;
+	border: 1px #ccc solid;
+}
+
+a:focus {
+	outline: none;
+}
+.left{
+    float:left;  
+	width:164px;
+}
+
+.panel{
+    width:0px;
+	background: #ccc;
+	height: 265px;
+    overflow:hidden;
+}
+.left .slide {
+    border-left:solid 4px #aaa; 
+	margin: 0;
+	padding: 0;
+	background: url(http://anton.shevchuk.name/wp-demo/jquery-tutorials-2/images/btn-slide-left.gif) no-repeat left center;
+	height: 265px;
+	width:38px;
+	float:left;
+}
+.left .panel{
+	float:left;
+}
+
+.left .btn-slide {
+	background: url(http://anton.shevchuk.name/wp-demo/jquery-tutorials-2/images/white-arrow-hor.gif) no-repeat -45px 80px;
+	text-indent: -9000%;
+	display: block;
+	height: 265px;
+	width:38px;
+}
+
+.left .active {
+	background-position: 10px 80px;
+}
+
+.panel ul {
+    list-style:none;
+    border-bottom:1px solid #333;
+    padding:10px;
+    margin:0;
+}
+
+.panel ul a{
+    font-weight:bold;
+    color: #333;
+    white-space: nowrap;

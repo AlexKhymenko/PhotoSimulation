@@ -1,0 +1,216 @@
+
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#search {
+	position: absolute;
+	right: 15%;
+	bottom: 20px;
+	left: 15%;
+	z-index: 10;
+	padding-top: 20px;
+	padding-bottom: 88px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+	
+}
+#second_panel{
+ display: none;
+}
+
+#tform {
+	width: 700px;
+	height: 35px;
+	border-radius: 60px;
+	box-shadow: 
+		0 2px 1px rgba(0, 0, 0, 0.2),
+		inset 0 2px 1px rgba(0, 0, 0, 0.2);
+		background-repeat: no-repeat;
+	color: #000000;
+
+}
+@media screen and (min-width:480px) and (max-width:800px) {
+.carousel {
+	height: 320px;
+	margin-bottom: 60px;
+}
+.carousel-indicators {
+	bottom: 20px;
+}
+.carousel-inner {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+.carousel-control:hover, .carousel-control:focus {
+	color: #fff;
+	text-decoration: none;
+	filter: alpha(opacity=90);
+	outline: none;
+	opacity: .9;
+}
+.carousel-control.right {
+	right: 0;
+	left: auto;
+	background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, .0001) 0%), color-stop(rgba(0, 0, 0, .5) 100%));
+	background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+	background-repeat: repeat-x;
+}
+}
+.registr{
+	margin-top: 300px;
+	margin-left: 450px;
+
+}
+.success, #reg, #myCab, #logout, .registr, #touser {
+    width: 100px;
+    height: 35px;
+    position: relative;
+  	display: inline-block;
+  	color: #777674;
+  	font-weight: bold;
+  	text-decoration: none;
+  	text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(176,224,230,.3) 3px 7px 3px;
+  	user-select: none;
+	outline: none;
+  	border-radius: 3px / 100%;
+  	background-image:
+   	linear-gradient(45deg, rgba(176,224,230,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%),
+   	linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)),
+   	linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   	linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   	linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)),
+   	linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+  	background-repeat: no-repeat;
+  	background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+  	background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+  	box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+}
+.success:hover, #reg:hover, #myCab:hover, #logout:hover, .registr:hover, #touser:hover{
+  transition: .5s linear;
+  background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+.success:active, #reg:active, #myCab:active, #logout:active, .registr:active, #touser:active {
+  top: 1px;
+}
+
+.categories {
+	padding-bottom: 30px;
+	background: #f8f8f8;
+}
+#si {
+	margin-left: 100px;
+}
+#but {
+    position: relative;
+  	display: inline-block;
+  	color: #777674;
+  	font-weight: bold;
+  	text-decoration: none;
+  	text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(100,100,100,.3) 3px 7px 3px;
+  	user-select: none;
+  	margin-top: 5px;
+  	utline: none;
+  	border-radius: 3px / 100%;
+  	background-image:
+   	linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%),
+  	linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)),
+   	linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   	linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   	linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)),
+   	linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+  	background-repeat: no-repeat;
+  	background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+ 	background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+  	box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+  	width: 100px;
+    height: 35px;
+}
+#but:hover {
+  transition: .5s linear;
+  background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+#but:active {
+  top: 1px;
+}
+
+.fcol{
+	display: block;
+	vertical-align: top;
+}
+.fcol li {
+	display:block;
+	float:left;
+}
+
+footer {
+	border-top: 1px solid #d2d2d2;
+	text-align: center;
+	background: #f8f8f8;
+	padding-bottom: 20px;
+}
+.logobar {
+	width: 100%;
+	height: 90px;
+}
+#logo {
+	width: 110px;
+	height: 150px;
+	margin-top: 60px;
+	margin-left: 5px;
+}
+#navbar {
+	width: 100%;
+	padding: 10px;
+	margin-top: -3px;
+	border-radius:5px;
+	background: rgb(0,0,0)  radial-gradient(circle at 75% 0, rgba(240,240,240,.60), rgba(240,240,240,.30));
+	box-shadow:
+		inset rgba(0,0,0,.6) 0 -3px 8px,
+		inset rgba(252,255,255,.7) 0 3px 8px,
+		rgba(0,0,0,.8) 0 3px 8px -3px;
+}
+#search_res {
+	width: 290px;
+	height: 200px;
+	margin: 5px;
+	 -webkit-box-shadow:
+        inset 0 0 4px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,.5),
+        inset 0 -9px 2px rgba(0,0,0,.6),
+        inset 0 -12px 2px rgba(255,255,255,.3);
+    -moz-box-shadow:
+        inset 0 0 4px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,.5),
+        inset 0 -9px 2px rgba(0,0,0,.6),
+        inset 0 -12px 2px rgba(255,255,255,.3);
+    box-shadow:
+        inset 0 0 4px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,.5),
+        inset 0 -9px 2px rgba(0,0,0,.6),
+        inset 0 -12px 2px rgba(255,255,255,.3);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+.column {
+    -webkit-column-width: 100px;
+    -moz-column-width: 100px;
+    column-width: 100px;
+    -webkit-column-count: 6;
+    -moz-column-count: 6;
+    column-count: 6;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;
+    column-gap: 30px;
+    -webkit-column-rule: 1px solid #ccc;
+    -moz-column-rule: 1px solid #ccc;
+    column-rule: 1px solid #ccc;
+}
+

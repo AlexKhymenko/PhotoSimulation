@@ -1,0 +1,213 @@
+.logobar {
+	width: 50%;
+	height: 7px;
+}
+#logo {
+	width: 45px;
+	height: 60px;
+	margin-top: 2px;
+	margin-left: 3px;
+	opacity: 0.5;
+	box-shadow:
+		inset rgba(0,0,0,.6) 0 -3px 8px,
+		inset rgba(252,255,255,.7) 0 3px 8px,
+		rgba(0,0,0,.8) 0 3px 8px -3px;
+}
+#navbar {
+	width: 100%;
+	padding: 10px;
+	margin-top: -3px;
+	background: rgb(0,0,0)  radial-gradient(circle at 75% 0, rgba(240,240,240,.60), rgba(240,240,240,.30));
+}
+.navhead {
+	margin-left: 60px;
+}
+.head {
+	height: 75px;
+}
+#ph {
+	width: 290px;
+	height: 200px;
+	margin: 5px;
+	 -webkit-box-shadow:
+        inset 0 0 4px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,.5),
+        inset 0 -9px 2px rgba(0,0,0,.6),
+        inset 0 -12px 2px rgba(255,255,255,.3);
+    -moz-box-shadow:
+        inset 0 0 4px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,.5),
+        inset 0 -9px 2px rgba(0,0,0,.6),
+        inset 0 -12px 2px rgba(255,255,255,.3);
+    box-shadow:
+        inset 0 0 4px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,.5),
+        inset 0 -9px 2px rgba(0,0,0,.6),
+        inset 0 -12px 2px rgba(255,255,255,.3);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#cbtn {
+	width: 100px;
+    height: 35px;
+	position: relative;
+  display: inline-block;
+  color: #777674;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(100,100,100,.3) 3px 7px 3px;
+  margin-top: 2px;
+  margin-bottom: 7px;
+  outline: none;
+  border-radius: 3px / 100%;
+  background-image:
+   linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%),
+   linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)),
+   linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+   linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)),
+   linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+  background-repeat: no-repeat;
+  background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+  background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+  box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+}
+#cbtn:hover {
+  transition: .5s linear;
+  background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+#cbtn:active {
+  top: 1px;
+}
+
+.float {
+    margin-top: 62px;
+    margin-left: 10px;
+    position:absolute;
+    width:152px;
+    z-index:10; 
+    background: #fff url(http://cs616716.vk.me/v616716550/15129/TZ4tpBt8Kmc.jpg) no-repeat center top;
+}
+.right {
+    right: 0px;
+    top:20px;
+}
+.left {
+    left: 0px;
+}
+.panel{
+	margin-top:10px;
+	padding-bottom:40px;
+	background: #fff url(http://cs616716.vk.me/v616716550/15130/48CofCp9evc.jpg) no-repeat center bottom;
+}
+
+.panel ul{
+    list-style:none;
+    margin:0 4px;
+    padding:0 10px;
+    border-left:2px solid #eee;
+    border-right:2px solid #eee;
+    
+}
+
+.panel li ul{
+	list-style-type: none;	
+	margin: 0;
+	padding: 0;	
+    display: none;
+    border:0;
+}
+.panel li ul li {
+	margin: 0 0 0 5px;
+	padding: 0;
+}
+.panel a{
+	display: block; 
+	padding: 5px 0px;
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+}
+.links {
+    margin-top:12px;
+    margin-left: 120px;
+}
+.links a{
+	font-weight: bold;
+    font-size:1.4em;
+    color: #fff;
+    text-decoration:none;
+}
+#headerimg {
+  background-image: url(pics/searchLineBack.jpg);
+  background-repeat: no-repeat;
+  margin-top: 5px;
+  margin-left: 110px;
+  width: 1024px;
+  height: 109px;
+  -webkit-box-shadow:
+        inset 0 0 4px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,.5),
+        inset 0 -9px 2px rgba(0,0,0,.6),
+        inset 0 -12px 2px rgba(255,255,255,.3);
+    -moz-box-shadow:
+        inset 0 0 4px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,.5),
+        inset 0 -9px 2px rgba(0,0,0,.6),
+        inset 0 -12px 2px rgba(255,255,255,.3);
+    box-shadow:
+        inset 0 0 4px rgba(0,0,0,1),
+        inset 0 2px 1px rgba(255,255,255,.5),
+        inset 0 -9px 2px rgba(0,0,0,.6),
+        inset 0 -12px 2px rgba(255,255,255,.3);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+#Wrform {
+  width: 700px;
+  height: 35px;
+  border-radius: 60px;
+  box-shadow: 
+    0 2px 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 1px rgba(0, 0, 0, 0.2);
+  background-repeat: no-repeat;
+  margin-top: 30px;
+}
+#btnsearch, #inpbtn {
+  position: relative;
+    display: inline-block;
+    color: #777674;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(100,100,100,.3) 3px 7px 3px;
+    user-select: none;
+    margin-top: 5px;
+    utline: none;
+    border-radius: 3px / 100%;
+    background-image:
+    linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%),
+    linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)),
+    linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+    linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)),
+    linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)),
+    linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+  background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+    box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+    width: 100px;
+    height: 35px;
+}
+#btnsearch:hover {
+  transition: .5s linear;
+  background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+#btnsearch:active {
+  top: 1px;
+}
+.text_field{
+	
+}

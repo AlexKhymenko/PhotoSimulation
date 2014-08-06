@@ -1,0 +1,183 @@
+<html>
+<head>
+	<title>Реєстрація</title>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../css/reg.css">
+</head><body>
+
+
+<body>
+	<section>
+		
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Про нас</a>
+          <a class="navbar-brand" href="#">Контакти</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form" id="#myform">
+            <div class="form-group" id="form-group1">
+              <input type="text" placeholder="Email" class="form-control" id="form-control1">
+            </div>
+            <div class="form-group" id="form-group2">
+              <input type="password" placeholder="Пароль" class="form-control" id="form-control2">
+            </div>
+            <button type="button" class="success" id="successful" onclick="logIn()">Увійти</button>
+
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+	</section>
+	<section class="logobar">
+		<img src="../pics/logo.png" id="logo">
+	</section>
+	<section class="forms" align="center">
+		<div id="main_formreg">
+			<form id="lpform">
+				<h3>Autentification info</h3>
+				Login: <input type="text" align="center" id="email"/> <br/>
+				<br/>
+				Password: <input type="text" align="center" id="pass"/> <br/>
+			</form>
+		</div>
+		<div id="off_formreg">
+			<form id="nsform">
+				<h4>Profile info</h4>
+				Name: <input type="text" align="center" id="name" /><br/>
+				<br/>
+				Secondname: <input type="text" align="center" id="secform"/><br/>
+				<br/>
+				Surname: <input type="text" align="center" id="sform"/><br/>
+			</form>
+		</div>
+		<!-- <button type="button" class="submitform">Submit</button> -->
+		<button class="success" id=submit type="button" value="submit" onclick="regButton()">Submit</button>
+		<button type="button" class="cancel">Cancel</button> 
+	</section>
+
+	<section class="categories">
+		<hr id="line" size="5">
+		<h3 id="si">Search into categories</h3>
+		<section class="categories-wrapper">
+			<div class="one">
+				<ul class="fcol">
+					<li>
+						<a href=""> Abstract</a>
+					</li>
+					<li>
+						<a href=""> Abstract</a>
+					</li>
+					<li>
+						<a href=""> Abstract</a>
+					</li>
+					<li>
+						<a href=""> Abstract</a>
+					</li>
+					<li>
+						<a href=""> Abstract</a>
+					</li>
+					<li>
+						<a href=""> Abstract</a>
+					</li>
+				</ul>
+				<ul class="scol">
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+				</ul>
+				<ul class="tcol">
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+				</ul>
+				<ul class="focol">
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+				</ul>
+					<ul class="ficol">
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+					<li>
+						<a href=""> Decoration</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</section>
+	<footer> Made by our team</footer>
+
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
