@@ -58,27 +58,7 @@
       </div>
     </div>
 	</section>
-	<div class="left">
 
-    <div class="panel">
-    	<ul>
-    	   <li><a href="#" title="Элемент 1">Элемент 1</a></li>
-    	   <li><a href="#" title="Элемент 2">Элемент 2</a></li>
-    	   <li><a href="#" title="Элемент 3">Элемент 3</a></li>
-    	</ul>
-    	<ul>
-    	   <li><a href="#" title="Элемент 1">Элемент 1</a></li>
-    	   <li><a href="#" title="Элемент 2">Элемент 2</a></li>
-    	   <li><a href="#" title="Элемент 3">Элемент 3</a></li>
-    	</ul>
-    	<ul>
-    	   <li><a href="#" title="Элемент 1">Элемент 1</a></li>
-    	   <li><a href="#" title="Элемент 2">Элемент 2</a></li>
-    	   <li><a href="#" title="Элемент 3">Элемент 3</a></li>
-    	</ul>
-    </div> 
-    <p class="slide"><a href="#" class="btn-slide">Меню</a></p>
-</div>
   <div id="forms">
       <form  align="center" >
             <input type="text" align="center"id="searchDate" />
@@ -140,27 +120,22 @@
         //Два раза меняет / на - . Переделать после
         string = string.replace('/', '-'); 
         string = string.replace('/', '-');  
-     var j =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/photoByDate/' +  string/* searchDate[Object.keys(searchDate)]*/ , function (data) {
+     var j =  $.getJSON('http://localhost:8080/Bank1/rest/jsonServices/photoByDate/' +  string, function (data) {
   	   debugger; 
   	 document.getElementById('slider').innerHTML = '';
   	 for (i = 0; i < Object.keys(data).length; i++) { 
-         /*    $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' +String(data [i]) + ' alt="" id="ph" onclick="openImageWindow()" />'); */
-         /* $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' +data[Object.keys(data)[i]] + ' alt="" id="ph" onclick="openImageWindow()" />'); */
          $("#slider").append('<img src=http://localhost:8080/Bank1/rest/jsonServices/images/' + Object.keys(data)[i]/*+String(data [i])*/ + ' alt="" id="ph" onclick="openImageWindow()" />');  
          
          '<br>' 
          //Add button delete near image
             $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/delete/' + Object.keys(data)[i] +'>' +'<button>Delete!</button></a>');
-           /*  $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/delete/' + String(data [i]).imageId +'>' +'<button>Click me !</button></a>'); */
+           
              $("#slider").append(' <a href=http://localhost:8080/Bank1/rest/jsonServices/moderConfirm/' + Object.keys(data)[i] +'>' +'<button>Confirm!</button></a>'); 
-            
-           // '<br>' 
+
      }
   	    return t;
   	});
-     
-     
-     
+
         	debugger;
         } 
         //Print all users and button 'bun', 'activate'
@@ -182,129 +157,14 @@
           
 </script>
     
-    
- <!-- Вставил код -->  
  <!-- Для отрисовки картинок для модера --> 
         <div id="slider">
-    </div>
-               
+    </div>              
             <span id="user">
     </span>
     
     
     
-    
-    
-<!-- ЗАМЕНИЛ ЭТУ ЧАСТЬ т.к. КАТЕГОРИИ выводились в столбик -->
-     <!-- Categories section-->
-    <section class="categories">
-    <hr id="line" size="5">
-    <h3 id="si">Search into categories</h3>
-    <section class="categories-wrapper">
-      <div class="one">
-        <ul class="fcol">
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-        </ul>
-        <ul class="scol">
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-        </ul>
-        <ul class="tcol">
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-        </ul>
-        <ul class="focol">
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-        </ul>
-          <ul class="ficol">
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </section>
   <footer> Made by our team</footer>
 </body>
 </html>

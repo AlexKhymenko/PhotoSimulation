@@ -3,6 +3,7 @@
   	<title>User Page</title>
   	<script type="text/javascript" src="js/main.js"></script>
   	<link rel="stylesheet" type="text/css" href="css/main.css">
+  	<link rel="stylesheet" type="text/css" href="css/modal-contact-form.css">
   	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -180,6 +181,7 @@
       <!--Button for logOut-->
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form" id="#myform">
+          <button type="button" class="success" id="successful" onclick = "document.getElementById('envelope4').style.display='block';document.getElementById('fade4').style.display='block'">Завантажити</button>
             <button type="button" class="success" id="successful" onclick="logOut()">Вийти</button>
 
           </form>
@@ -230,126 +232,30 @@
 </div></div></table></td></tr></table></div></section>
 <!-- Upload form-->
     <section class="uploadform">
+    <div id="fade4" class="black-overlay4">
+
+    <div id="envelope4" class="envelope4">
+    <a class="close-btn" title="Закрити" href="javascript:void(0)" onclick = "document.getElementById('envelope4').style.display='none';document.getElementById('fade4').style.display='none'"></a>
+   <div class="title"> Завантаження</div>
+   <div>
       <form action="http://localhost:8080/Bank1/rest/jsonServices/upload" method="post" enctype="multipart/form-data" id="upform">
-        <p>
+        <p id="selection">
           Select a file : <input type="file" name="file" size="45" id="fileinput"/>
         </p>
-        Folder:<input type="text" name="folder" value="folder" id="folder">
+        Folder: <!--  <input type="text" name="folder" value="folder" id="folder">-->
+        <select name="folder" value="folder" id="folder">
+  			<option>Personal</option>
+  			<option>General</option>
+		</select>
         <br>
         Title:<input type="text" name="title" value="title" id="title">
         <br>
-        <input type="submit" value="Upload It" id="inpbtn" />
+        <input type="submit" value="Upload It" id="inpbtn" /></div>
       </form>
-    </section>
-    <!-- Categories section-->
-    <section class="categories">
-    <hr id="line" size="5">
-    <h3 id="si">Search into categories</h3>
-    <section class="categories-wrapper">
-      <div class="one">
-        <ul class="fcol">
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-          <li>
-            <a href=""> Abstract</a>
-          </li>
-        </ul>
-        <ul class="scol">
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-        </ul>
-        <ul class="tcol">
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-        </ul>
-        <ul class="focol">
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-        </ul>
-          <ul class="ficol">
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-          <li>
-            <a href=""> Decoration</a>
-          </li>
-        </ul>
+      </div>
       </div>
     </section>
-  </section>
+
   <footer> Made by our team</footer>
 </body>
 </html>

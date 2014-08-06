@@ -1,4 +1,4 @@
-.black-overlay{     
+.black-overlay, .black-overlay4{     
 	display: none;     
 	position: absolute;     
 	top: 0%;     
@@ -12,7 +12,7 @@
 	opacity:0.95;     
 	
 } 
-.envelope {     
+.envelope, .envelope4 {     
 	display: none;    
 	position: absolute;     
 	width: 600px;     
@@ -317,4 +317,10 @@ input[type=text]:focus, .your-message:focus {
 	position: relative;
 	opacity: 1;     
 	margin: 10% auto; 
+}
+#upform{
+	padding: 130px;
+}
+select#folder{
+	margin:10px;
 }
