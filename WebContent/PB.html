@@ -4,6 +4,7 @@
 		<title>Photo Bank</title>
 		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/validationLogin.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -155,10 +156,10 @@
    <a class="close-btn" title="Закрити" href="javascript:void(0)" onclick = "document.getElementById('envelope').style.display='none';document.getElementById('fade').style.display='none'"></a>
    <div class="title">Реєстрація</div>
    <form method="post" action="">
-    <input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'* Ваш логін:this.value;" value="* Ваш логін" class="your-login" id="reg_login"/>
-    <input type="password"  placeholder="Введіть пароль"  class="password" id="reg_pass"/>
-    <input type="password"  placeholder="Повторіть пароль" class="repeat_password"/>
-    <input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'* Ваш Email':this.value;" value="* Ваш Email" class="email-address"/>
+    <input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'* Ваш логін:this.value;" value="Enter email" class="your-login" id="reg_login" onkeyup="checkEmail(); return false;"/>
+    <input type="password"  placeholder="Input 1 uppers, lower case 1 digit"  class="password" id="reg_pass" onkeyup="checkPassword(); return false;" />
+    <input type="password"  placeholder="repeat password" class="repeat_password" id="txtConfirmPassword" onkeyup="checkPass(); return false;"/>
+    
     <input type="text" class="your-name" placeholder="* Ім'я"/>
 <!--     <button type="submit"  value="Надіслати" class="send-message" onclick="regButton()"> -->
     <button id=submit type="button" class="registr" value="submit" onclick="regButton()">Submit</button>

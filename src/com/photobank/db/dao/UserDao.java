@@ -30,13 +30,15 @@ public class UserDao {
 		query.setString("name", email);
 
 		List<User> users = (List<User>) query.list();
-		session.close();
+		//session.close();
 		if (users.isEmpty())
 			return "Error";
 		if (!pass.equals(users.get(0).getPassword().getPassword()))
 			return "Error";
 		if (!users.get(0).getActivated())
 			return "Error";
+		
+		session.close();
 		return email;
 	}
 
@@ -144,7 +146,7 @@ public class UserDao {
 		for(User u:users){
 			result.put(u.getUserId(), u.getName());
 		}
-		
+		session.close();
 		return result;
 	}
 

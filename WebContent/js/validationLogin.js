@@ -39,7 +39,7 @@ function checkPass()
 // Cheking email on validation via regulard expression if true color green if false red
 function checkEmail() {
 debugger;
-    var email = document.getElementById('gmail');
+    var email = document.getElementById('reg_login');
     var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
  var goodColor = "#66cc66";
     var badColor = "#ff6666";

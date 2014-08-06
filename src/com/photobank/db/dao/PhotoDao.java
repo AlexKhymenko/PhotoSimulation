@@ -37,6 +37,7 @@ public class PhotoDao {
 		for(Photo p:photoes){
 			arrPath.add(p.getPath());
 		}
+		session.close();
 		return arrPath;
 
 	}
@@ -55,6 +56,7 @@ public class PhotoDao {
 		for(Photo p:photoes){
 			arrPath.put(p.getImageId(),p.getTitle());
 		}
+		session.close();
 		return arrPath;
 
 	}
@@ -72,6 +74,7 @@ public class PhotoDao {
 		for(Photo p:photoes){
 			arrPath.put(p.getImageId(), p.getPath());
 		}
+		session.close();
 		return arrPath;
 		
 	}
@@ -128,6 +131,7 @@ public class PhotoDao {
 			// pathes.add(p.getPath());
 			pathes.add(p.getImageId());
 		}
+		session.close();
 		// System.out.println(users);
 		return pathes;
 
@@ -175,6 +179,7 @@ public class PhotoDao {
 
 			arrPath.put(p.getImageId(), p.getPath());
 		}
+		session.close();
 		return arrPath;
 
 	}
@@ -214,6 +219,7 @@ public class PhotoDao {
 		List<Photo> photoes = query.list();
 		System.out.println(photoes.get(0));
 		title = photoes.get(0).getTitle();
+		session.close();
 		return title;
 	}
 	
@@ -225,6 +231,7 @@ public class PhotoDao {
 		List<Photo> photoes = query.list();
 		System.out.println(photoes.get(0));
 		title = photoes.get(0).getTitle();
+		session.close();
 		return title;
 	}
 
@@ -241,6 +248,7 @@ public class PhotoDao {
 
 			arrPath.put(p.getImageId(), p.getTitle());
 		}
+		session.close();
 		return arrPath;
 		// TODO Auto-generated method stub
 
