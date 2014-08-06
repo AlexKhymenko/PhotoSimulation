@@ -36,6 +36,15 @@
 .close-btn:hover{     
 	background: url(https://afscme13.org/img/closeButton.png);   
 } 
+.title {
+	top: 60px;     
+	left: 210px; 
+}
+.title3{
+	top: 20px;     
+	left: 210px; 
+}
+
 .title, .title3 {     
 	font-family: "Comic Sans MS", cursive, sans-serif;     
 	font-size:30px;     
@@ -43,8 +52,7 @@
 	font-weight: 200;     
 	text-align:left;     
 	position: absolute;     
-	top: 20px;     
-	left: 210px;     
+	    
 
 	color: white;     
 	height: 40px;     
@@ -61,8 +69,8 @@ input[type=text] {
 	background-color:rgb(255,255,255);     
 	color: #787474;     
 	padding-left: 10px;     
-	width:208px;     
-	height:33px;     
+	width:220px;     
+	height:37px;     
 	border-color:rgb(182,182,182);     
 	border-width:1px;     
 	border-style:solid;     
@@ -81,8 +89,8 @@ input[type=password]{
 	background-color:rgb(255,255,255);     
 	color: #787474;     
 	padding-left: 10px;     
-	width:208px;     
-	height:33px;     
+	width:220px;     
+	height:37px;     
 	border-color:rgb(182,182,182);     
 	border-width:1px;     
 	border-style:solid;     
@@ -107,45 +115,27 @@ input[type=text]:focus, .your-message:focus {
 	filter:progid:DXImageTransform.Microsoft.Glow(Color=#bfa8b2bc,Strength=5)         progid:DXImageTransform.Microsoft.dropshadow(OffX = 0,OffY = 1,Color = #80ffffff,Positive = true); 
 } 
 .your-name {     
-	position: absolute;
-	top: 200px;
-	left: 60px;
+	position: absolute;     
+	top: 130px;     
+	left: 300px; 
 }   
 .password{
 	position: absolute;
-	top: 150px;
+	top: 200px;
 	left: 60px;
 }
 .repeat_password{
 	position: absolute;
-	top: 150px;
+	top: 200px;
 	left: 300px;
 }
 .your-login {     
 	position: absolute;     
-	top: 100px;     
+	top: 130px;     
 	left: 60px; 
 }
-.your-surname{
-	position: absolute;     
-	top: 200px;     
-	left: 300px; 
-}   
-.birthday{
-	position: absolute;     
-	top: 250px;     
-	left: 60px; 
-}
-.phone{
-	position: absolute;     
-	top: 250px;     
-	left: 300px; 
-}
-.email-address {     
-	position: absolute;     
-	top: 100px;     
-	left: 300px; 
-}
+
+
 .send-message{
 	top: 300px;     
 	right: 20px; 
